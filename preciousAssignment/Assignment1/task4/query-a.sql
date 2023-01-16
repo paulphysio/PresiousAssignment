@@ -1,0 +1,2 @@
+SELECT `Date Time`, `Location`,`PM2.5` FROM pollution_db2.pollution_table where `Date Time` between '2019-01-01' and '2019-12-31';
+SELECT MAX(NOx) FROM pollution_db2.pollution_table where `Date Time` between '2019-01-01' and '2019-12-31';

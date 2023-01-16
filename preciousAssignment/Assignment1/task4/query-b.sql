@@ -1,0 +1,22 @@
+create table NEWDATE(`Date Time` datetime, `PM2.5` text, `VPM2.5` text, `location` text);
+INSERT INTO `New Table` select date_format(`Date Time`,'2019-%m-%d 08:%m:%S'), `PM2.5`, `VPM2.5`, `location` FROM pollution_db2.pollution_table where `Date Time` between '2019-01-01' and '2019-12-31';
+
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'AURN Bristol Centre';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Brislington Depot';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Rupert Street';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'IKEA M32';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Old Market';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Parson Street School';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Temple Meads Station';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Wells Road';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Trailer Portway P&R';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Newfoundland Road Police Station';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= "Shiner's Garage";
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'AURN St Pauls';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Bath Road';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Cheltenham Road \ Station Road';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Fishponds Road';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'CREATE Centre Roof';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Temple Way';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Colston Avenue';
+SELECT AVG(`PM2.5`), AVG(`VPM2.5`) FROM `New Table` where location= 'Marlborough Street';

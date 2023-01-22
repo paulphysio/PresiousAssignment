@@ -5,25 +5,25 @@ import numpy as np
 def crop(file):
     main = []
     df=pd.read_csv(file, iterator=True, chunksize=1000, delimiter=";")
-    for file_chunk in df:
-        file_chunk=file_chunk.fillna(' ')
-        old_list=[]
-        new_list=[]
-        for i in file_chunk["Date Time"]:
+    for chunk in df:
+        chunk=chunk.fillna('0')
+        old_ti=[]
+        new_ti=[]
+        for i in chunk["Date Time"]:
             if len(i)==25:
                 val=i[0]+i[1]+i[2]+i[3]
                 
                 if int(val) >= 2010:
-                    new_list.append(i)
-                    old_list.append(i)
+                    new_ti.append(i)
+                    old_ti.append(i)
                 else:
-                    new_list.append(np.nan)
-                    old_list.append(i)
+                    new_ti.append(np.nan)
+                    old_ti.append(i)
             else:
-                new_list.append(np.nan)
-                old_list.append(i)
-        file_chunk["Date Time"]=file_chunk["Date Time"].replace(old_list, new_list)
-        new_df=file_chunk.dropna()
+                new_ti.append(np.nan)
+                old_ti.append(i)
+        chunk["Date Time"]=chunk["Date Time"].replace(old_ti, new_ti)
+        new_df=chunk.dropna()
 
         # new_df.to_csv("crop.csv", index=False)
         new_df.reset_index()
@@ -57,5 +57,12 @@ def crop(file):
         main.append(last_df)
     final_main=pd.concat(main)
     final_main.to_csv("crop.csv", index=False)
+    print("Do not open file yet, wait for code to finish running.....")
+    with open('crop.csv', 'r') as file:
+        data=file.read()
+        data = data.replace("\"", "")
+        with open("crop.csv", "w") as output:
+            output.write(data)
+    return "Done"
     
-crop("air-quality-data-continuous.csv")
+crop("files.csv")
